@@ -1,7 +1,7 @@
 <html>
 <div class="hero">
   <h2>Welcome</h2>
-  Axels CLI demo maker is a bash script to present a set of commands as demo.<br>
+  Axels CLI demo maker is a bash script to present a set of commands as terminal demo.<br>
 </div>
 </html>
 

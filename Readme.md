@@ -1,8 +1,8 @@
 # Axels CLI demo maker
 
-A bash script to present a set of commands as demo.
+A bash script to present a set of commands as terminal demo.
 
-
+👤 Author: Axel Hahn\
 📄 Source: <https://github.com/axelhahn/bash_cli-demo-maker/> \
 📜 License: GNU GPL 3.0 \
-📖 Docs: <https://www.axel-hahn.de/docs/bash_cli-demo-maker/>
+📗 Docs: <https://www.axel-hahn.de/docs/bash_cli-demo-maker/>

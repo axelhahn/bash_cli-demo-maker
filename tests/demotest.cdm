@@ -1,0 +1,17 @@
+# ----------------------------------------------------------------------
+#
+#   SCRIPT FOR CLI DEMO MAKER
+#
+# ----------------------------------------------------------------------
+
+    # limtation test
+    ls * | sort 2>&1
+    free ; uptime
+
+    cdm.shell url="https://www.example.com/api/health"
+    echo "$url"
+    rem "This is the output of a variable which was set with cdm.shell before"
+
+    cdm.waitOnEnd
+
+# ----------------------------------------------------------------------

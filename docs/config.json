@@ -1,0 +1,26 @@
+{
+    "title": "CLI demo maker",
+    "author": "Axel Hahn",
+    "tagline": "A bash script to present a set of commands as terminal demo.",
+    "ignore": {
+        "files": ["30_PHP-client/Plugins/Checks/_skeleton.md"],
+        "folders": ["99_Not_Ready"]
+    },
+    "html": {
+        "auto_toc": true,
+        "auto_landing": false,
+        "date_modified": false,
+        "jump_buttons": true,
+        "edit_on_github_": "axelhahn/__PROJECT__/tree/master/docs",
+        "edit_on_": {
+            "name": "Gitlab",
+            "basepath": "https://git-repo.iml.unibe.ch/iml-open-source/__PROJECT__/tree/master/docs"
+        },
+        "links": {
+            "Git Repo": "https://github.com/axelhahn/bash_cli-demo-maker/",
+            "Axels Docs": "https://www.axel-hahn.de/docs/bash_cli-demo-maker/"
+        },
+        "theme": "daux-blue",
+        "search": true
+    }
+}

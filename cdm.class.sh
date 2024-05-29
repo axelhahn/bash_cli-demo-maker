@@ -13,16 +13,18 @@
 # ----------------------------------------------------------------------
 # 2024-05-nn  v0.1  initial version
 # 2024-05-nn  v0.2  parse script
-# 2024-05-nn  v0.3  improve parse script; add cdm.shell; remove command limitations
+# 2024-05-28  v0.3  improve parse script; add cdm.shell; remove command limitations
+# 2024-05-30  v0.4  add wait time before executing a command
 # ======================================================================
 
-CDM_VERSION='v0.3'
+CDM_VERSION='v0.4'
 CDM_ABOUT='Axels cli demo maker'
 
 # a username in the prompt
 CDM_USER='user'
 CDM_HOST='tux-client'
 
+CDM_WAITTIME=''
 
 COLOR_PRESET_prompt_user='green'
 COLOR_PRESET_prompt_host='lightgray'
@@ -41,14 +43,23 @@ COLOR_PRESET_rc_error='white red'
 # SETTER
 # ----------------------------------------------------------------------
 
+# set a host name for the prompt
+# param  string  new host name
 function cdm.sethost(){
     CDM_HOST="$1"
 }
 
+# set a user name for the prompt
+# param  string  new user name
 function cdm.setuser(){
     CDM_USER="$1"
 }   
 
+# set waiting time for the command execution
+# param  integer  new wait time
+function cdm.setwaittime(){
+    CDM_WAITTIME="$1"
+}
 
 function cdm.timer(){
     local _timer; typeset -i _timer="$1"
@@ -107,6 +118,9 @@ function cdm.rem(){
 # param  string  command to execute
 function cdm.run(){
     local dummy
+    local readparam=
+
+    test -n "$CDM_WAITTIME" && readparam="-t $CDM_WAITTIME"
 
     echo
     cdm.prompt
@@ -114,7 +128,7 @@ function cdm.run(){
     color.fg $COLOR_PRESET_prompt_typer
     cdm.typer "$*"
     color.reset
-    read -r dummy
+    read -r $readparam dummy
     cdm.shell $*
     rc=$?
     if [ $rc -eq 0 ]; then
@@ -178,7 +192,6 @@ function cdm.script() {
     rm -f "$_exec"
 
     echo "#!/bin/bash" >> "$_exec"
-    echo ". $( dirname $0 )/vendor/color.class.sh | exit 1" >> "$_exec"
     
     grep "[a-z]" "$_script" | while read -r line; do
 

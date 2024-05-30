@@ -4,7 +4,7 @@ List of all functions in alphabetic order
 
 ### cdm.prompt()
 
-[line: 87](https://github.com/axelhahn/bash_cli-demo-maker/blob/main/cdm.class.sh#L87)
+[line: 99](https://github.com/axelhahn/bash_cli-demo-maker/blob/main/cdm.class.sh#L99)
 
 ### cdm.rem()
 
@@ -13,7 +13,7 @@ write a remark in the console
 🟩 param string  text to show
 ```
 
-[line: 99](https://github.com/axelhahn/bash_cli-demo-maker/blob/main/cdm.class.sh#L99)
+[line: 111](https://github.com/axelhahn/bash_cli-demo-maker/blob/main/cdm.class.sh#L111)
 
 ### cdm.run()
 
@@ -23,7 +23,7 @@ You get the output of it and see the return code
 🟩 param  string  command to execute
 ```
 
-[line: 108](https://github.com/axelhahn/bash_cli-demo-maker/blob/main/cdm.class.sh#L108)
+[line: 120](https://github.com/axelhahn/bash_cli-demo-maker/blob/main/cdm.class.sh#L120)
 
 ### cdm.script()
 
@@ -33,15 +33,34 @@ Parse a script and execute it from a generated temp file
 🔹 param  string  optional: to debug set a non empty string
 ```
 
-[line: 169](https://github.com/axelhahn/bash_cli-demo-maker/blob/main/cdm.class.sh#L169)
+[line: 187](https://github.com/axelhahn/bash_cli-demo-maker/blob/main/cdm.class.sh#L187)
 
 ### cdm.sethost()
 
-[line: 44](https://github.com/axelhahn/bash_cli-demo-maker/blob/main/cdm.class.sh#L44)
+```txt
+set a host name for the prompt
+🟩 param  string  new host name
+```
+
+[line: 49](https://github.com/axelhahn/bash_cli-demo-maker/blob/main/cdm.class.sh#L49)
 
 ### cdm.setuser()
 
-[line: 48](https://github.com/axelhahn/bash_cli-demo-maker/blob/main/cdm.class.sh#L48)
+```txt
+set a user name for the prompt
+🟩 param  string  new user name
+```
+
+[line: 55](https://github.com/axelhahn/bash_cli-demo-maker/blob/main/cdm.class.sh#L55)
+
+### cdm.setwaittime()
+
+```txt
+set waiting time for the command execution
+🟩 param  integer  new wait time
+```
+
+[line: 61](https://github.com/axelhahn/bash_cli-demo-maker/blob/main/cdm.class.sh#L61)
 
 ### cdm.shell()
 
@@ -51,11 +70,11 @@ You get the output of it
 🟩 param  string  command to execute
 ```
 
-[line: 130](https://github.com/axelhahn/bash_cli-demo-maker/blob/main/cdm.class.sh#L130)
+[line: 148](https://github.com/axelhahn/bash_cli-demo-maker/blob/main/cdm.class.sh#L148)
 
 ### cdm.timer()
 
-[line: 53](https://github.com/axelhahn/bash_cli-demo-maker/blob/main/cdm.class.sh#L53)
+[line: 65](https://github.com/axelhahn/bash_cli-demo-maker/blob/main/cdm.class.sh#L65)
 
 ### cdm.typer()
 
@@ -64,7 +83,7 @@ randomly delayed typing of a given text
 🟩 param string text
 ```
 
-[line: 135](https://github.com/axelhahn/bash_cli-demo-maker/blob/main/cdm.class.sh#L135)
+[line: 153](https://github.com/axelhahn/bash_cli-demo-maker/blob/main/cdm.class.sh#L153)
 
 ### cdm.waitOnEnd()
 
@@ -73,5 +92,5 @@ show a waiting text after a demo
 🔹 param  string  optional: custom text; default: "End of this demo. Press Return ..."
 ```
 
-[line: 147](https://github.com/axelhahn/bash_cli-demo-maker/blob/main/cdm.class.sh#L147)
+[line: 165](https://github.com/axelhahn/bash_cli-demo-maker/blob/main/cdm.class.sh#L165)
 

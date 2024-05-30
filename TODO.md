@@ -2,6 +2,6 @@
 
 What comes to my mind to implement before releasing as version 1.0
 
-* set color
+* set color profiles
 * customize prompt
-* cdm.run waits for RETURN - allow a sleeptime too (to record a demo)
+* customize typer speed

@@ -130,8 +130,8 @@ function cdm.run(){
     cdm.typer "$*"
     color.reset
 
-    # wait for input; on timeout write a new line
-    if ! read -r -s $readparam dummy; then echo ""; fi
+    read -r -s $readparam dummy
+    echo
 
     cdm.shell $*
     rc=$?

@@ -1,9 +1,8 @@
 #!/bin/bash
 
-cd "$( dirname $0 )"
-
-. cdm.class.sh || exit  1
-. vendor/color.class.sh || exit 1
+_selfdir="$( dirname $0 )"
+. "${_selfdir}/cdm.class.sh" || exit  1
+. "${_selfdir}/vendor/color.class.sh" || exit 1
 
 FLAG_DEBUG=
 
@@ -65,6 +64,8 @@ if [ -z "$scriptfile" ]; then
     exit 2
 fi
 
+# ----------------------------------------------------------------------
 
 cdm.script "$scriptfile" $FLAG_DEBUG
 
+# ----------------------------------------------------------------------

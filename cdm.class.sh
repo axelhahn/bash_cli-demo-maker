@@ -3,7 +3,7 @@
 #
 # CLI DEMO MAKER
 #
-# a shell script for making demos
+# a shell script to show cli demos
 #
 # ----------------------------------------------------------------------
 # license: GNU GPL 3.0
@@ -15,9 +15,10 @@
 # 2024-05-nn  v0.2  parse script
 # 2024-05-28  v0.3  improve parse script; add cdm.shell; remove command limitations
 # 2024-05-30  v0.4  add wait time before executing a command
+# 2024-05-30  v0.5  detect timeout and write new line; fix in cdm.script
 # ======================================================================
 
-CDM_VERSION='v0.4'
+CDM_VERSION='0.5'
 CDM_ABOUT='Axels cli demo maker'
 
 # a username in the prompt
@@ -128,7 +129,10 @@ function cdm.run(){
     color.fg $COLOR_PRESET_prompt_typer
     cdm.typer "$*"
     color.reset
-    read -r $readparam dummy
+
+    # wait for input; on timeout write a new line
+    if ! read -r -s $readparam dummy; then echo ""; fi
+
     cdm.shell $*
     rc=$?
     if [ $rc -eq 0 ]; then
@@ -213,7 +217,7 @@ function cdm.script() {
 
         _firstword=$( echo "${_prefix}${array[@]}" | cut -f 1 -d " " | grep "cdm\." )
         echo -n "$_firstword" >> "$_exec"
-        echo "${_prefix}${array[@]}${_suffix}" | sed 's#cdm\.[a-z][a-z]*##gi' >> "$_exec"
+        echo "${_prefix}${array[@]}${_suffix}" | sed 's#^cdm\.[a-z][a-z]*##gi' >> "$_exec"
         
     done
     if [ -n "$_debug" ]; then

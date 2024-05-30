@@ -15,7 +15,7 @@ function _showhelp() {
     local _self=$( basename $0 )
     cat << EOF
 
-Axels CLI DEMO MAKER
+Axels CLI DEMO MAKER v${CDM_VERSION}
 
   Author: Axel Hahn
   Docs: https://www.axel-hahn.de/docs/bash_cli-demo-maker/

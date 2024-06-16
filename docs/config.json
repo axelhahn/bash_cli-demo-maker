@@ -18,7 +18,7 @@
         },
         "links": {
             "Git Repo": "https://github.com/axelhahn/bash_cli-demo-maker/",
-            "Axels Docs": "https://www.axel-hahn.de/docs/bash_cli-demo-maker/"
+            "Axels Docs": "https://www.axel-hahn.de/docs/"
         },
         "theme": "daux-blue",
         "search": true

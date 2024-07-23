@@ -1,6 +1,6 @@
 ## Use functions
 
-In your shell script you need to source
+When not using the delivered CLI wrapper then in your shell script you need to source
 
 * cdm.class.sh
 * vendor/color.class.sh

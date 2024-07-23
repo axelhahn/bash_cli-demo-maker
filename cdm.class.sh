@@ -16,9 +16,10 @@
 # 2024-05-28  v0.3  improve parse script; add cdm.shell; remove command limitations
 # 2024-05-30  v0.4  add wait time before executing a command
 # 2024-05-30  v0.5  detect timeout and write new line; fix in cdm.script
+# 2024-07-24  v0.6  apply waittime at the end too; show 
 # ======================================================================
 
-CDM_VERSION='0.5'
+CDM_VERSION='0.6'
 CDM_ABOUT='Axels cli demo maker'
 
 # a username in the prompt
@@ -44,24 +45,28 @@ COLOR_PRESET_rc_error='white red'
 # SETTER
 # ----------------------------------------------------------------------
 
-# set a host name for the prompt
-# param  string  new host name
+# Set a host name for the prompt
+# param  string  new host name; default is "tux-client"
 function cdm.sethost(){
     CDM_HOST="$1"
 }
 
 # set a user name for the prompt
-# param  string  new user name
+# param  string  new user name; default is "user"
 function cdm.setuser(){
     CDM_USER="$1"
 }   
 
-# set waiting time for the command execution
-# param  integer  new wait time
+# Set waiting time after finishing the prompt and before command execution 
+# param  float  new wait time in sec, eg 2.5; default is '' (=interactive return)
 function cdm.setwaittime(){
     CDM_WAITTIME="$1"
 }
 
+# Wait for N seconds and show a progress bar while waiting
+# Use this to show that the program is still running but needs to wait a fixed
+# amount of time.
+# param  integer  new wait time in sec
 function cdm.timer(){
     local _timer; typeset -i _timer="$1"
     local _progress; typeset -i _progress=0
@@ -72,15 +77,15 @@ function cdm.timer(){
 
 
 
-        for (( i=0; i<$_progress; i++ )); do
+        for (( i=0; i<_progress; i++ )); do
             _bar="${_bar}#"
         done
 
-        for (( i=$_progress; $i<$_timer; i++ )); do
+        for (( i=_progress; i<_timer; i++ )); do
             mychar='.'
-            test $(( ($i+1) % 5 ))  -eq 0  && mychar='+'
-            test $(( ($i+1) % 10 )) -eq 0  && mychar='|'
-            test $(( ($i+1) % 50 )) -eq 0  && mychar='#'
+            test $(( (i+1) % 5 ))  -eq 0  && mychar='+'
+            test $(( (i+1) % 10 )) -eq 0  && mychar='|'
+            test $(( (i+1) % 50 )) -eq 0  && mychar='#'
             _bar="${_bar}${mychar}"
         done
 
@@ -96,6 +101,9 @@ function cdm.timer(){
 # PROMPT + EXEC
 # ----------------------------------------------------------------------
 
+# Render a fake shell prompt
+# see cdm.setHost to set a different host
+# see cdm.setUser to set a different user
 function cdm.prompt(){
     local _path; 
     _path=$( pwd )
@@ -106,7 +114,7 @@ function cdm.prompt(){
     color.print $COLOR_PRESET_prompt_char "> "
 }
 
-# write a remark in the console
+# Write a remark in the console
 # param string  text to show
 function cdm.rem(){
     sleep 0.3
@@ -114,8 +122,9 @@ function cdm.rem(){
     echo "$*" | sed "s#^#        |  #g"
 }
 
-# run a command: it renders a prompt, types the command and executes it.
+# Run a command: it renders a prompt, types the command and executes it.
 # You get the output of it and see the return code
+# see cmd.shell to run any command without the fake prompt
 # param  string  command to execute
 function cdm.run(){
     local dummy
@@ -142,19 +151,20 @@ function cdm.run(){
     fi
 }
 
-# run a command without prompt
+# Run a command without prompt
 # You get the output of it
 # param  string  command to execute
 function cdm.shell(){
     eval $*
 }
-# randomly delayed typing of a given text
+
+# Randomly delayed typing of a given text
 # param string text
 function cdm.typer(){
     local _txt="$1"
     for ((i=0; i<=${#_txt}; i++)); do
         printf '%s' "${_txt:$i:1}"
-        _sleep=0.$(( (RANDOM % 1000)/600 ))
+        _sleep=0.$(( (RANDOM % 1000)/300 ))
         sleep "$_sleep"
     done 
 }
@@ -165,18 +175,24 @@ function cdm.typer(){
 function cdm.waitOnEnd(){
     local _text="${1:- >>> End of this demo. Press Return ... }"
     local dummy
+    local readparam=
+
+    test -n "$CDM_WAITTIME" && readparam="-t $CDM_WAITTIME"
+
     sleep 0.5; echo
     sleep 0.3; echo
     sleep 0.2; echo
     sleep 0.1; echo
     sleep 0.05; echo
     color.echo darkgray "________________________________________________________________________"
-    echo
+    test -z "$1" && color.echo darkgray " Created with <https://github.com/axelhahn/bash_cli-demo-maker>"; sleep 3; echo; echo; echo; echo
+    
     echo -n "$_text"
-    read -r dummy
+    read -r -s $readparam dummy
     echo
     echo
 }
+
 # ----------------------------------------------------------------------
 # PARSE SCRIPT
 # ----------------------------------------------------------------------

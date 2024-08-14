@@ -3,6 +3,8 @@
 * Prepare a set of cli commands and show tested command sets in a presentation
 * ... or record a set of commands using `ttyrec` or similar tools
 * Store your commands in a file - it looks like a normal shell script. And can contain special functions `cdm.<function>` for some special commands
+* The macrofile runs in a shell session. If you set a variable 
+* Next to the "visible prompt" you can execute any command invisibly too - to set variables, create directories, whatever is needed
 
 ## Fake terminal
 
@@ -15,6 +17,6 @@
 * You get the output of an executed shell command
 * In an extra line there is the return code
 
-## CLI script
+## CLI scripts
 
-Next to the bash functions there is a bash script with command line suppport to execute prepared makros
+Next to the bash functions there are bash scripts with command line suppport to execute prepared makros or to record them.

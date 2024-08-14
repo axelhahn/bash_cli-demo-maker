@@ -1,20 +1,16 @@
-## Use functions
-
-When not using the delivered CLI wrapper then in your shell script you need to source
-
-* cdm.class.sh
-* vendor/color.class.sh
-
-Then you can use all functions starting with **cdm.** prefix.
-
-Mainly you would need
-
-* cdm.run '<COMMAND>' - to execute a set of commands line by line
-* cdm.rem '<TEXT>' - to show comments
+<!-- START-ADD-TTY-PLAYER -->
+<html>
+    <script src=ttyrec/webcomponents-lite.min.js></script>
+    <link rel=stylesheet href=ttyrec/tty-player.css>
+    <script src=ttyrec/term.min.js></script>
+    <script src=ttyrec/tty-player.min.js></script>
+</html>
+<!-- END-ADD-TTY-PLAYER -->
 
 ## Script
 
-You can write a script that can be parsed and executed with `cdm.script <FILE>`.
+You can write a script for your shell demo. 
+It can be started with `run_demo.sh <FILE>`.
 
 ### Syntax of scripts
 
@@ -27,21 +23,65 @@ You can write a script that can be parsed and executed with `cdm.script <FILE>`.
 
 But in short: for a first start write your commands line by line.
 
+### Examples
 
-### Example
+#### Basic example
 
 ```shell
 # --------------------------------------------------
 # example cdm script
 # --------------------------------------------------
+  
+  rem ""
+  rem "I am a remark."
+  rem "and can display infos and hints."
+  rem ""
 
-    cd /opt/cronwrapper/
-    ls *.sh
-    rem "Here are the main shell scripts of the project"
-
-    # set "root" in the prompt:
-    cdm.setuser root
-    du -hs /var/log/*
+  ls -ld /tmp
+  uptime
 
 # --------------------------------------------------
 ```
+
+<tty-player controls rows=20 cols=90 src=files/clidemo_usage_basic.ttyrec poster=npt:0.00></tty-player>
+
+#### Override the prompt
+
+By default the prompt is set to `user@tux-client (path) >` - so your own user or hostname is not shown. 
+
+If you want to update it just to see something else or to simulate a remote session you can do it with these commands:
+
+* `cdm.setuser <username>`
+* `cdm.sethost <host>`
+
+These commmands will be executed silently.
+
+The path is the current directory which can change with `cd <path>` during your script.
+
+* `cdm.setpath <path>`
+
+You can set a fixed path value - but then keep in mind to update it again when you change directories.
+
+```shell
+# --------------------------------------------------
+
+  cdm.shell "cd"
+
+  rem ""
+  rem "Have a look to the default prompt:"
+  rem ""
+
+  echo "That is the default prompt"
+
+  rem "Now I set another user"
+  cdm.setuser "anna"
+
+  echo "I updated the user in the prompt"
+
+  rem "Now I set another host"
+  cdm.sethost "webserver-01"
+
+  echo "I updated the host in the prompt"
+# --------------------------------------------------
+```
+<tty-player controls rows=20 cols=90 src=files/clidemo_usage_prompt.ttyrec poster=npt:0.00></tty-player>

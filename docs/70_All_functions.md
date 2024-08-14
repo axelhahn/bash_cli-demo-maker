@@ -2,15 +2,25 @@
 
 List of all functions in alphabetic order
 
+### cdm.end()
+
+```txt
+show a waiting text after a demo
+🔹 param  string  optional: custom text; default: "End of this demo. Press Return ..."
+```
+
+[line: 200](https://github.com/axelhahn/bash_cli-demo-maker/blob/main/cdm.class.sh#L200)
+
 ### cdm.prompt()
 
 ```txt
 Render a fake shell prompt
-👉🏼 see cdm.setHost to set a different host
-👉🏼 see cdm.setUser to set a different user
+👉🏼 see cdm.sethost to set a different host
+👉🏼 see cdm.setuser to set a different user
+👉🏼 see cdm.setpath to set a fixed path to hide real path
 ```
 
-[line: 107](https://github.com/axelhahn/bash_cli-demo-maker/blob/main/cdm.class.sh#L107)
+[line: 117](https://github.com/axelhahn/bash_cli-demo-maker/blob/main/cdm.class.sh#L117)
 
 ### cdm.rem()
 
@@ -19,7 +29,7 @@ Write a remark in the console
 🟩 param string  text to show
 ```
 
-[line: 119](https://github.com/axelhahn/bash_cli-demo-maker/blob/main/cdm.class.sh#L119)
+[line: 137](https://github.com/axelhahn/bash_cli-demo-maker/blob/main/cdm.class.sh#L137)
 
 ### cdm.run()
 
@@ -30,7 +40,7 @@ You get the output of it and see the return code
 🟩 param  string  command to execute
 ```
 
-[line: 129](https://github.com/axelhahn/bash_cli-demo-maker/blob/main/cdm.class.sh#L129)
+[line: 147](https://github.com/axelhahn/bash_cli-demo-maker/blob/main/cdm.class.sh#L147)
 
 ### cdm.script()
 
@@ -40,7 +50,7 @@ Parse a script and execute it from a generated temp file
 🔹 param  string  optional: to debug set a non empty string
 ```
 
-[line: 203](https://github.com/axelhahn/bash_cli-demo-maker/blob/main/cdm.class.sh#L203)
+[line: 229](https://github.com/axelhahn/bash_cli-demo-maker/blob/main/cdm.class.sh#L229)
 
 ### cdm.sethost()
 
@@ -49,16 +59,25 @@ Set a host name for the prompt
 🟩 param  string  new host name; default is "tux-client"
 ```
 
-[line: 50](https://github.com/axelhahn/bash_cli-demo-maker/blob/main/cdm.class.sh#L50)
+[line: 53](https://github.com/axelhahn/bash_cli-demo-maker/blob/main/cdm.class.sh#L53)
+
+### cdm.setpath()
+
+```txt
+Set a fixed path for the prompt to hide the current location
+🟩 param  string  new path name; default is "" (=dynamicly written current dir)
+```
+
+[line: 59](https://github.com/axelhahn/bash_cli-demo-maker/blob/main/cdm.class.sh#L59)
 
 ### cdm.setuser()
 
 ```txt
-set a user name for the prompt
+Set a user name for the prompt
 🟩 param  string  new user name; default is "user"
 ```
 
-[line: 56](https://github.com/axelhahn/bash_cli-demo-maker/blob/main/cdm.class.sh#L56)
+[line: 65](https://github.com/axelhahn/bash_cli-demo-maker/blob/main/cdm.class.sh#L65)
 
 ### cdm.setwaittime()
 
@@ -67,7 +86,7 @@ Set waiting time after finishing the prompt and before command execution
 🟩 param  float  new wait time in sec, eg 2.5; default is '' (=interactive return)
 ```
 
-[line: 62](https://github.com/axelhahn/bash_cli-demo-maker/blob/main/cdm.class.sh#L62)
+[line: 71](https://github.com/axelhahn/bash_cli-demo-maker/blob/main/cdm.class.sh#L71)
 
 ### cdm.shell()
 
@@ -77,7 +96,7 @@ You get the output of it
 🟩 param  string  command to execute
 ```
 
-[line: 157](https://github.com/axelhahn/bash_cli-demo-maker/blob/main/cdm.class.sh#L157)
+[line: 175](https://github.com/axelhahn/bash_cli-demo-maker/blob/main/cdm.class.sh#L175)
 
 ### cdm.timer()
 
@@ -88,23 +107,15 @@ amount of time.
 🟩 param  integer  new wait time in sec
 ```
 
-[line: 70](https://github.com/axelhahn/bash_cli-demo-maker/blob/main/cdm.class.sh#L70)
+[line: 79](https://github.com/axelhahn/bash_cli-demo-maker/blob/main/cdm.class.sh#L79)
 
 ### cdm.typer()
 
 ```txt
 Randomly delayed typing of a given text
+Dealy time is random between 0.0 and 0.250 sec
 🟩 param string text
 ```
 
-[line: 163](https://github.com/axelhahn/bash_cli-demo-maker/blob/main/cdm.class.sh#L163)
-
-### cdm.waitOnEnd()
-
-```txt
-show a waiting text after a demo
-🔹 param  string  optional: custom text; default: "End of this demo. Press Return ..."
-```
-
-[line: 175](https://github.com/axelhahn/bash_cli-demo-maker/blob/main/cdm.class.sh#L175)
+[line: 182](https://github.com/axelhahn/bash_cli-demo-maker/blob/main/cdm.class.sh#L182)
 

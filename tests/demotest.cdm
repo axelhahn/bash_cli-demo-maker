@@ -12,6 +12,6 @@
     echo "$url"
     rem "This is the output of a variable which was set with cdm.shell before"
 
-    cdm.waitOnEnd
+    cdm.end
 
 # ----------------------------------------------------------------------

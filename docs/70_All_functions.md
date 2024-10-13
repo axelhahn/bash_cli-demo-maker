@@ -82,7 +82,7 @@ Set a user name for the prompt
 ### cdm.setwaittime()
 
 ```txt
-Set waiting time after finishing the prompt and before command execution
+Set waiting time after finishing the prompt and before command execution 
 🟩 param  float  new wait time in sec, eg 2.5; default is '' (=interactive return)
 ```
 
@@ -119,3 +119,5 @@ Dealy time is random between 0.0 and 0.250 sec
 
 [line: 182](https://github.com/axelhahn/bash_cli-demo-maker/blob/main/cdm.class.sh#L182)
 
+- - -
+Generated with [Bashdoc](https://github.com/axelhahn/bashdoc) v0.7

@@ -1,0 +1,28 @@
+# ----------------------------------------------------------------------
+#
+# CLI demo file for usage :: override prompt
+# used in docs/50_Usage.md
+#
+# ----------------------------------------------------------------------
+
+  cdm.shell "cd"
+
+  rem ""
+  rem "Have a look to the default prompt:"
+  rem ""
+
+  echo "That is the default prompt"
+
+  rem "Now I set another user"
+  cdm.setuser "anna"
+
+  echo "I updated the user in the prompt"
+
+  rem "Now I set another host"
+  cdm.sethost "webserver-01"
+
+  echo "I updated the host in the prompt"
+
+  cdm.end "End of demo"
+
+# ----------------------------------------------------------------------

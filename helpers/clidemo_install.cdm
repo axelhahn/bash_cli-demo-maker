@@ -1,0 +1,59 @@
+# ----------------------------------------------------------------------
+#
+# CLI demo file for installation.
+# used in docs/40_Installation.md
+#
+# ----------------------------------------------------------------------
+
+# INTRO
+#
+# cdm.shell "source $( dirname $0 )/vendor/color.class.sh"
+# 
+# cdm.shell color.fg green
+# cdm.shell toilet -f smmono12 --termwidth "CLI demo"
+# cdm.shell sleep 1
+# 
+# cdm.shell cdm.shell color.fg purple
+# cdm.shell toilet -f smmono12 --termwidth "Installation"
+# cdm.shell sleep 1
+# 
+# cdm.shell color.reset
+
+# ----------------------------------------------------------------------
+
+# prepare environment for this demo
+
+cdm.shell "cd ~"
+cdm.setpath "~"
+cdm.shell "rm -rf demo-installations"
+cdm.shell "mkdir -p demo-installations 2>/dev/null"
+
+# ----------------------------------------------------------------------
+
+rem ""
+rem "INSTALLATION"
+rem "of"
+rem "CLI DEMO MAKER"
+rem ""
+
+cd ~/demo-installations
+cdm.setpath ""
+
+git clone https://github.com/axelhahn/bash_cli-demo-maker.git
+
+cd bash_cli-demo-maker
+
+rem "You find all files in"
+rem "$(pwd)"
+cdm.shell "sleep 3"
+rem ""
+rem "Finally ... this command is optional:"
+rem "./record_demo.sh -i"
+rem ""
+
+cdm.shell "rm -rf demo-installations"
+
+# cdm.waitOnEnd "End of demo"
+cdm.end "End of demo"
+
+# ----------------------------------------------------------------------

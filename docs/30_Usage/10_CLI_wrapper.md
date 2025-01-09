@@ -1,6 +1,9 @@
 ## Introduction
 
 The project contains 2 wrapper scripts to make your CLI demo easier. One shows a script as interactive demo and the other records it as a ttyrec file.
+If these wrappers don't fit your needs - only then - you can use the class like script `cdm.class.sh` and use its functions.
+
+Let's start with the simple way.
 
 ## run_demo.sh
 

@@ -1,0 +1,20 @@
+# ----------------------------------------------------------------------
+#
+# CLI demo file for usage :: basic
+# used in docs/50_Usage.md
+#
+# ----------------------------------------------------------------------
+
+  cdm.setpath "~"
+
+  rem ""
+  rem "I am a remark."
+  rem "and can display infos and hints."
+  rem ""
+
+  ls -ld /tmp
+  uptime
+  
+  cdm.end "End of demo"
+
+# ----------------------------------------------------------------------

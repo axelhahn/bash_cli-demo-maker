@@ -6,4 +6,4 @@ cd "$(dirname "$0")/../" || exit 1
     -l 2 \
     -r "https://github.com/axelhahn/bash_cli-demo-maker/blob/main/" \
     cdm.class.sh \
-    > docs/50_All_functions.md
+    > docs/70_All_functions.md

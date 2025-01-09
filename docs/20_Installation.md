@@ -9,6 +9,10 @@
 
 ## Get the files
 
+!!! info note
+    This step is optional.
+
+
 This can be installed with any non priviledged user.
 
 ```shell
@@ -21,8 +25,6 @@ git clone https://github.com/axelhahn/bash_cli-demo-maker.git
 The script `record_demo.sh` to record a script as a ttyrec file has a paramter `-i` or `--install` to install a helper script in ~/bin.
 
 Then it can be accessed without path.
-
-This step is optional.
 
 ```shell
 cd bash_cli-demo-maker

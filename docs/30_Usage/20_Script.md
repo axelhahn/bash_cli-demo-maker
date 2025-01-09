@@ -12,6 +12,8 @@
 You can write a script for your shell demo. 
 It can be started with `run_demo.sh <FILE>`.
 
+But what is the syntax of such a macro or script?
+
 ### Syntax of scripts
 
 * It is close to a shell script - with a limitiation of commands in a single line.
@@ -21,7 +23,7 @@ It can be started with `run_demo.sh <FILE>`.
   * **cdm.** prefix is detected - these function will be executed directly without prompt
   * **rem [TEXT]** is a shortcut for `cdm.rem [TEXT]`
 
-But in short: for a first start write your commands line by line.
+But in short: for a first start write your shell commands line by line.
 
 ### Examples
 

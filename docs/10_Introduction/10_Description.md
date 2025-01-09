@@ -8,7 +8,7 @@ Nooo - I can write scripts. I want that all actions can be repeated. Before my p
 
 ## Description
 
-The CLI demo maker processes terminal commands line by line. 
+The CLI demo maker processes terminal commands line by line. But not with the speed of a normal shell script.
 
 To bring in it simulates a promt with the current path. If you change the directory in one line and ls in the next command the prompt will follow and the ls knows the directory for its action. If you set a variable it stays in the environment. In short: it is like shell but with pre defined commands.
 

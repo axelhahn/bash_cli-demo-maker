@@ -1,9 +1,9 @@
 <!-- START-ADD-TTY-PLAYER -->
 <html>
-    <script src=ttyrec/webcomponents-lite.min.js></script>
-    <link rel=stylesheet href=ttyrec/tty-player.css>
-    <script src=ttyrec/term.min.js></script>
-    <script src=ttyrec/tty-player.min.js></script>
+    <script src=../ttyrec/webcomponents-lite.min.js></script>
+    <link rel=stylesheet href=../ttyrec/tty-player.css>
+    <script src=../ttyrec/term.min.js></script>
+    <script src=../ttyrec/tty-player.min.js></script>
 </html>
 <!-- END-ADD-TTY-PLAYER -->
 
@@ -45,7 +45,7 @@ But in short: for a first start write your shell commands line by line.
 # --------------------------------------------------
 ```
 
-<tty-player controls rows=20 cols=90 src=files/clidemo_usage_basic.ttyrec poster=npt:0.00></tty-player>
+<tty-player controls rows=20 cols=90 src=../files/clidemo_usage_basic.ttyrec poster=npt:0.00></tty-player>
 
 #### Override the prompt
 
@@ -86,4 +86,4 @@ You can set a fixed path value - but then keep in mind to update it again when y
   echo "I updated the host in the prompt"
 # --------------------------------------------------
 ```
-<tty-player controls rows=20 cols=90 src=files/clidemo_usage_prompt.ttyrec poster=npt:0.00></tty-player>
+<tty-player controls rows=20 cols=90 src=../files/clidemo_usage_prompt.ttyrec poster=npt:0.00></tty-player>
